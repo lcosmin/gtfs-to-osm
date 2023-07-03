@@ -99,10 +99,15 @@ Download the resulting RAW data (JSON file).
 
 # Usage
 
-Open the browser and connect to Jupyter. You should see the `correlate.ipynb` notebook in the file browser.
+Open the browser and connect to Jupyter. You should see the `gtfs-to-osm.ipynb` notebook in the file browser.
 
-Open it.
+Double click to open it.
 
-View -> Activate Command Palette -> Trust Notebook.
+The notebook must be trusted first:  `View` -> `Activate Command Palette` -> `Trust Notebook`.
 
-Edit the data in the first cell and set the variables `GTFS_FILE` to point to the zip containing your GTFS data (e.g. `./data/gtfs.zip`) , 
+Edit the data in the first cell and set the variables:
+
+* `GTFS_FILE` should point to the zip containing your GTFS data (e.g. `./data/gtfs.zip`)
+* `OSM_FILE` should point to the json containing data extracted from OSM (using overpass)
+* `OUTPUT_FILE` is the CSV file where correlations should be written
+* `FILTER_ALREADY_CORRELATED_DATA` - set to `True` if already correlated data should not be displayed anymore (on startup)
