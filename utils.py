@@ -22,9 +22,6 @@ osm_elem_validator = Schema(
         "id": int,
         "lat": float,
         "lon": float,
-        "tags": {
-            "name": non_empty_string,
-        },
     },
     required=True,
     extra=ALLOW_EXTRA,
@@ -56,7 +53,7 @@ def osm_2_gdf(path: str) -> GeoDataFrame:
         types.append(elem["type"])
         ids.append(elem["id"])
         points.append(Point(elem["lon"], elem["lat"]))
-        names.append(elem["tags"]["name"])
+        names.append(elem.get("tags", {}).get("name", "n/a"))
 
     return GeoDataFrame(
         {
