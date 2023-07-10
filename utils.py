@@ -37,7 +37,7 @@ def osm_2_gdf(path: str) -> GeoDataFrame:
 
     types: List[str] = []
     points: List[Point] = []
-    ids: List[int] = []
+    ids: List[str] = []
     names: List[str] = []
 
     for elem in raw_data["elements"]:
@@ -51,7 +51,7 @@ def osm_2_gdf(path: str) -> GeoDataFrame:
         # TODO: exclude elements which already have GTFS specific tags
 
         types.append(elem["type"])
-        ids.append(elem["id"])
+        ids.append(str(elem["id"]))
         points.append(Point(elem["lon"], elem["lat"]))
         names.append(elem.get("tags", {}).get("name", "n/a"))
 
